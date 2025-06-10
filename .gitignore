@@ -1,0 +1,13 @@
+# VitePress cache
+.vitepress/cache/
+# Build output
+.vitepress/dist/
+
+# Node modules
+node_modules/
+
+# macOS
+.DS_Store
+
+# PDF export output
+export-pdf/pdf/ 
