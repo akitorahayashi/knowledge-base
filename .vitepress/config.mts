@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 // GitHub Pages で正しいパスになるよう BASE_URL を計算
-const BASE_URL = process.env.GITHUB_ACTIONS === 'true' ? '/knowledge-base-mobile/' : '/';
+const BASE_URL = process.env.GITHUB_ACTIONS === 'true' ? '/knowledge-base/' : '/';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,7 +10,7 @@ export default defineConfig({
   description: "モバイルアプリ開発のナレッジのまとめサイト",
   // ファビコンを設定
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: `${BASE_URL}image/logo.png` }]
+    ['link', { rel: 'icon', type: 'image/png', href: `image/logo.png` }]
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
