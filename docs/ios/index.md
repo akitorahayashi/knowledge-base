@@ -10,4 +10,3 @@ features:
     details: Placeholder content for iOS Article 2.
     link: /ios/contents/2-ios-article
 ---
-EOF

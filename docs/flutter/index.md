@@ -10,4 +10,3 @@ features:
     details: Placeholder content for Flutter Article 2.
     link: /flutter/contents/2-flutter-article
 ---
-EOF

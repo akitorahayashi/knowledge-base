@@ -3,8 +3,9 @@
 layout: home
 
 hero:
-  name: "My Blog"
-  text: "プライベートブログ"
+  name: "Knowledge Base"
+  text: "開発のナレッジのまとめサイト"
+  tagline: "iOS・Flutter"
   image:
     src: image/logo.png
     alt: logo
@@ -18,10 +19,6 @@ features:
     title: Flutter
     details: Dartを使ったクロスプラットフォーム開発
     link: /docs/flutter/
-  - icon: ⚛️
-    title: React Native
-    details: React Nativeを使ったクロスプラットフォーム開発
-    link: /docs/react-native/
 ---
 
 
