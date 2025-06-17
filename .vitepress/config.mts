@@ -25,7 +25,7 @@ export default defineConfig({
         {
           text: 'iOS開発',
           items: [
-            { text: 'iOS トップ', link: '/docs/ios/' },
+            { text: 'iOS トップ', link: '/docs/ios/index' },
             { text: '記事1', link: '/docs/ios/contents/1-ios-article' },
             { text: '記事2', link: '/docs/ios/contents/2-ios-article' },
           ]
@@ -35,7 +35,7 @@ export default defineConfig({
         {
           text: 'Flutter開発',
           items: [
-            { text: 'Flutter トップ', link: '/docs/flutter/' },
+            { text: 'Flutter トップ', link: '/docs/flutter/index' },
             { text: '記事1', link: '/docs/flutter/contents/1-flutter-article' },
             { text: '記事2', link: '/docs/flutter/contents/2-flutter-article' },
           ]
