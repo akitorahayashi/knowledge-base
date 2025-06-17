@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "Knowledge Base"
-  text: "開発のナレッジのまとめサイト"
+  text: "開発に関するナレッジをまとめたサイト"
   tagline: "iOS・Flutter"
   image:
     src: /image/logo.png

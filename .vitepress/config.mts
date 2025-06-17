@@ -10,7 +10,13 @@ export default defineConfig({
   description: "モバイルアプリ開発のナレッジのまとめサイト",
   // ファビコンを設定
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/image/logo.png' }]
+    ['link', { rel: 'icon', type: 'image/png', href: '/image/logo.png' }],
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
+    ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
+    ['link', { rel: 'apple-touch-icon', href: '/image/logo.png' }]
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
