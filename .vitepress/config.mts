@@ -10,7 +10,7 @@ export default defineConfig({
   description: "モバイルアプリ開発のナレッジのまとめサイト",
   // ファビコンを設定
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: `image/logo.png` }]
+    ['link', { rel: 'icon', type: 'image/png', href: '/image/logo.png' }]
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
