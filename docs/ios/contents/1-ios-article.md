@@ -1,6 +1,14 @@
 ---
-title: iOS Article 1
+title: ダミータイトル
+next:
+  text: '次の記事タイトル'
+  link: '/docs/ios/contents/2-ios-article.md'
+lastUpdated: true
+outline: [2]
 ---
-# iOS Article 1
 
-This is some placeholder content for iOS Article 1.
+### 概要
+簡単な説明。
+
+- 項目1
+- 項目2
