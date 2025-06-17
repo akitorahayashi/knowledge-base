@@ -7,7 +7,7 @@ hero:
   text: "プライベートブログ"
   tagline: "モバイルアプリ開発の技術記録"
   image:
-    src: /image/logo.png
+    src: image/logo.png
     alt: logo
   actions:
     - theme: brand
