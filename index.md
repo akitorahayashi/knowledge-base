@@ -7,7 +7,7 @@ hero:
   text: "開発のナレッジのまとめサイト"
   tagline: "iOS・Flutter"
   image:
-    src: image/logo.png
+    src: /image/logo.png
     alt: logo
 
 features:
