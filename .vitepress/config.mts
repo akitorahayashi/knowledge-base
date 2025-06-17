@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: "/",
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/knowledge-base-mobile/' : '/',
   title: "My Blog",
   description: "プライベートブログ - モバイルアプリ開発の技術記録",
   themeConfig: {
