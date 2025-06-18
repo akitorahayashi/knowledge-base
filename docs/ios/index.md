@@ -1,6 +1,5 @@
 ---
 layout: home
-# title: iOS Knowledge Base # Keep original title or remove if hero.name is preferred as main title
 hero:
   name: "iOS"
   text: "Swift、UIKit、SwiftUIを使ったiOSアプリ開発"

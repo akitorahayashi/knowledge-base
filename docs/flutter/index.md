@@ -1,6 +1,5 @@
 ---
 layout: home
-# title: Flutter Knowledge Base # Keep original title or remove if hero.name is preferred as main title
 hero:
   name: "Flutter"
   text: "Dartを使ったクロスプラットフォーム開発"
