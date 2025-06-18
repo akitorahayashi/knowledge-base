@@ -6,7 +6,10 @@ hero:
   tagline: "Gemini の Gem を作る際のプロンプトまとめ"
 
 features:
-  - title: iOS Topic Generator
-    details: iOS開発に関するトピック生成用プロンプト
-    link: /docs/gemini-gem-prompt/contents/1-ios-topic-gen
+  - title: Apple Ecosystem Topic Generator
+    details: Apple Ecosystem開発に関するトピック生成用プロンプト
+    link: /docs/gemini-gem-prompt/contents/1-apple-ecosystem-topic-gen
+  - title: Flutter Topic Generator
+    details: Flutter開発に関するトピック生成用プロンプト
+    link: /docs/gemini-gem-prompt/contents/2-flutter-topic-gen
 --- 

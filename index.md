@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Knowledge Base"
   text: "開発に関するナレッジをまとめたサイト"
-  tagline: "iOS・Flutter"
+  tagline: "iOS・Flutter・Gemini Gems"
   image:
     src: /image/logo.png
     alt: logo

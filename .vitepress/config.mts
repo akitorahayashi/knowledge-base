@@ -53,7 +53,8 @@ export default defineConfig({
           text: 'Gemini Gem Prompts',
           items: [
             { text: 'トップ', link: '/docs/gemini-gem-prompt/index' },
-            { text: 'iOS Topic Generator', link: '/docs/gemini-gem-prompt/contents/1-ios-topic-gen' },
+            { text: 'Apple Ecosystem Topic Generator', link: '/docs/gemini-gem-prompt/contents/1-apple-ecosystem-topic-gen' },
+            { text: 'Flutter Topic Generator', link: '/docs/gemini-gem-prompt/contents/2-flutter-topic-gen' },
           ]
         },
       ],
