@@ -1,7 +1,9 @@
 ---
 layout: home
-title: Flutter Knowledge Base
-
+hero:
+  name: "Flutter"
+  text: "Dartを使ったクロスプラットフォーム開発"
+  tagline: "Flutterに関するナレッジをまとめたページ"
 features:
   - title: Flutter Article 1
     details: Placeholder content for Flutter Article 1.
