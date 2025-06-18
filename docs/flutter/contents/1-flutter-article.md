@@ -1,8 +1,5 @@
 ---
 title: ダミータイトル
-next:
-  text: '次の記事タイトル'
-  link: '/docs/flutter/contents/2-flutter-article.md'
 lastUpdated: true
 outline: [2]
 ---
