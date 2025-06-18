@@ -22,19 +22,19 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'ホーム', link: '/' },
-      { text: 'iOS', link: '/docs/ios/' },
+      { text: 'Apple Ecosystem', link: '/docs/apple-ecosystem/' },
       { text: 'Flutter', link: '/docs/flutter/' },
       { text: 'Gemini Gem', link: '/docs/gemini-gem-prompt/' }
     ],
 
     sidebar: {
-      '/docs/ios/': [
+      '/docs/apple-ecosystem/': [
         {
-          text: 'iOS開発',
+          text: 'Apple Ecosystem開発',
           items: [
-            { text: 'iOS トップ', link: '/docs/ios/index' },
-            { text: '記事1', link: '/docs/ios/contents/1-ios-article' },
-            { text: '記事2', link: '/docs/ios/contents/2-ios-article' },
+            { text: 'Apple Ecosystem トップ', link: '/docs/apple-ecosystem/index' },
+            { text: '記事1', link: '/docs/apple-ecosystem/contents/1-apple-ecosystem-article' },
+            { text: '記事2', link: '/docs/apple-ecosystem/contents/2-apple-ecosystem-article' },
           ]
         },
       ],

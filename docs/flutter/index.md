@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "Flutter"
+  name: "🦋 Flutter"
   tagline: "Dartを使ったクロスプラットフォーム開発"
 
 features:

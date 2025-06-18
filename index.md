@@ -5,17 +5,17 @@ layout: home
 hero:
   name: "Knowledge Base"
   text: "開発に関するナレッジをまとめたサイト"
-  tagline: "iOS・Flutter・Gemini Gems"
+  tagline: "Apple Ecosystem・Flutter・Gemini Gems"
   image:
     src: /image/logo.png
     alt: logo
 
 features:
-  - icon: 📱
-    title: iOS
-    details: Swiftを使ったiOSアプリ開発
-    link: /docs/ios/
-  - icon: 🎯
+  - icon: 🍎
+    title: Apple Ecosystem
+    details: Swiftを使ったApple プラットフォーム開発
+    link: /docs/apple-ecosystem/
+  - icon: 🦋
     title: Flutter
     details: Dartを使ったクロスプラットフォーム開発
     link: /docs/flutter/
