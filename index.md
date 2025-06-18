@@ -13,7 +13,7 @@ hero:
 features:
   - icon: 📱
     title: iOS
-    details: Swift、UIKit、SwiftUIを使ったiOSアプリ開発
+    details: Swiftを使ったiOSアプリ開発
     link: /docs/ios/
   - icon: 🎯
     title: Flutter

@@ -1,9 +1,10 @@
 ---
 layout: home
+
 hero:
   name: "iOS"
-  text: "Swift、UIKit、SwiftUIを使ったiOSアプリ開発"
-  tagline: "iOSに関するナレッジをまとめたページ"
+  tagline: "Swiftを使ったiOSアプリ開発"
+
 features:
   - title: iOS Article 1
     details: Placeholder content for iOS Article 1.

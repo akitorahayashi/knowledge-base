@@ -24,7 +24,7 @@ export default defineConfig({
       { text: 'ホーム', link: '/' },
       { text: 'iOS', link: '/docs/ios/' },
       { text: 'Flutter', link: '/docs/flutter/' },
-      { text: 'Prompt', link: '/docs/gemini-gem-prompt/' }
+      { text: 'Gemini Gem', link: '/docs/gemini-gem-prompt/' }
     ],
 
     sidebar: {
@@ -53,7 +53,7 @@ export default defineConfig({
           text: 'Gemini Gem Prompts',
           items: [
             { text: 'トップ', link: '/docs/gemini-gem-prompt/index' },
-            { text: 'iOS Topic Generation', link: '/docs/gemini-gem-prompt/contents/1-ios-topic-gen' },
+            { text: 'iOS Topic Generator', link: '/docs/gemini-gem-prompt/contents/1-ios-topic-gen' },
           ]
         },
       ],

@@ -1,9 +1,10 @@
 ---
 layout: home
+
 hero:
   name: "Flutter"
-  text: "Dartを使ったクロスプラットフォーム開発"
-  tagline: "Flutterに関するナレッジをまとめたページ"
+  tagline: "Dartを使ったクロスプラットフォーム開発"
+
 features:
   - title: Flutter Article 1
     details: Placeholder content for Flutter Article 1.
