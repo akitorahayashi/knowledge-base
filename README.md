@@ -23,19 +23,19 @@ mkdir -p docs/react/contents
 ```
 
 #### ステップ2: カテゴリトップページの作成
-`docs/react/index.md` というファイルを新規作成し、**以下の内容をそのままコピー**してください：
+`docs/react/index.md` というファイルを新規作成し、**以下の形式を参考に、実際のカテゴリー名と内容に合わせて**記述してください：
 ```yaml
 ---
 layout: home
-title: React Knowledge Base
+title: React Knowledge Base  # ← 実際のカテゴリー名に変更
 
 features:
-  - title: React Hooks
-    details: React Hooksの使い方とベストプラクティス
-    link: /docs/react/contents/1-react-hooks
-  - title: State Management
-    details: ReduxやContext APIを使った状態管理
-    link: /docs/react/contents/2-state-management
+  - title: React Hooks  # ← 実際の記事タイトルに変更
+    details: React Hooksの使い方とベストプラクティス  # ← 実際の記事説明に変更
+    link: /docs/react/contents/1-react-hooks  # ← 実際のファイルパスに変更
+  - title: State Management  # ← 実際の記事タイトルに変更
+    details: ReduxやContext APIを使った状態管理  # ← 実際の記事説明に変更
+    link: /docs/react/contents/2-state-management  # ← 実際のファイルパスに変更
 ---
 ```
 
