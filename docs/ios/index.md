@@ -1,7 +1,10 @@
 ---
 layout: home
-title: iOS Knowledge Base
-
+# title: iOS Knowledge Base # Keep original title or remove if hero.name is preferred as main title
+hero:
+  name: "iOS"
+  text: "Swift、UIKit、SwiftUIを使ったiOSアプリ開発"
+  tagline: "iOSに関するナレッジをまとめたページ"
 features:
   - title: iOS Article 1
     details: Placeholder content for iOS Article 1.
