@@ -19,6 +19,10 @@ features:
     title: Flutter
     details: Dartを使ったクロスプラットフォーム開発
     link: /docs/flutter/
+  - icon: 🤖
+    title: Gemini Gems
+    details: Gemini の Gem を作る際のプロンプトまとめ
+    link: /docs/gemini-gem-prompt/
 ---
 
 
