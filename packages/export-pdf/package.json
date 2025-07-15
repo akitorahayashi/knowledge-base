@@ -1,12 +1,20 @@
 {
   "name": "export-pdf",
   "version": "1.0.0",
-  "main": "export-pdf.js",
+  "main": "dist/export-pdf.js",
   "bin": {
-    "export-pdf": "./export-pdf.js"
+    "export-pdf": "./dist/export-pdf.js"
+  },
+  "scripts": {
+    "build": "tsc"
   },
   "dependencies": {
-    "playwright": "^1.44.1",
+    "puppeteer": "^24.13.0",
     "vitepress": "^1.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.14",
+    "@types/puppeteer": "^5.4.7",
+    "typescript": "^5.8.3"
   }
 }
