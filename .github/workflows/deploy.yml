@@ -9,7 +9,7 @@ jobs:
   deploy:
     if: |
       github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'issue_comment' && github.event.issue.pull_request && startsWith(github.event.comment.body, '/deploy') && trim(github.event.comment.body) == '/deploy')
+      (github.event_name == 'issue_comment' && github.event.issue.pull_request && startsWith(github.event.comment.body, '/deploy'))
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -28,7 +28,7 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: |
-          rm -rf node_modules package-lock.json
+          rm -rf node_modules
           npm install
       - name: Build
         run: npm run docs:build
