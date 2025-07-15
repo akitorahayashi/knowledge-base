@@ -23,6 +23,10 @@ features:
     title: Gemini Gems
     details: Gemini の Gem を作る際のプロンプトまとめ
     link: /docs/gemini-gem-prompt/
+  - icon: 🐍
+    title: Python
+    details: Pythonを使った開発
+    link: /docs/python/
 ---
 
 
