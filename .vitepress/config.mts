@@ -27,43 +27,39 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/sources/apple-ecosystem/': [
+      '/apple-ecosystem/': [
         {
-          text: 'Apple Ecosystem開発',
           items: [
-            { text: 'Apple Ecosystem トップ', link: '/sources/apple-ecosystem/index' },
-            { text: '記事1', link: '/sources/apple-ecosystem/contents/1-apple-ecosystem-article' },
-            { text: '記事2', link: '/sources/apple-ecosystem/contents/2-apple-ecosystem-article' },
+            { text: 'Apple Ecosystem トップ', link: '/apple-ecosystem/' },
+            { text: '記事1', link: '/apple-ecosystem/contents/1-apple-ecosystem-article' },
+            { text: '記事2', link: '/apple-ecosystem/contents/2-apple-ecosystem-article' },
           ]
         },
       ],
-      '/sources/flutter/': [
+      '/flutter/': [
         {
-          text: 'Flutter開発',
           items: [
-            { text: 'Flutter トップ', link: '/sources/flutter/index' },
-            { text: '記事1', link: '/sources/flutter/contents/1-flutter-article' },
-            { text: '記事2', link: '/sources/flutter/contents/2-flutter-article' },
+            { text: 'Flutter トップ', link: '/flutter/' },
+            { text: '記事1', link: '/flutter/contents/1-flutter-article' },
+            { text: '記事2', link: '/flutter/contents/2-flutter-article' },
           ]
         },
       ],
-      '/sources/python/': [
+      '/python/': [
         {
-          text: 'Python開発',
           items: [
-            { text: 'Python トップ', link: '/sources/python/index' },
-            { text: '記事1', link: '/sources/python/contents/1-python-article' },
+            { text: 'Python トップ', link: '/python/' },
+            { text: '記事1', link: '/python/contents/1-python-article' },
           ]
         },
       ],
-      '/sources/gemini-gem-prompt/': [
+      '/gemini-gem-prompt/': [
         {
-          text: 'Gemini Gem Prompts',
           items: [
-            { text: 'トップ', link: '/sources/gemini-gem-prompt/index' },
-            { text: 'Apple Ecosystem Topic Generator', link: '/sources/gemini-gem-prompt/contents/1-apple-ecosystem-topic-gen' },
-            { text: 'Flutter Topic Generator', link: '/sources/gemini-gem-prompt/contents/2-flutter-topic-gen' },
-            { text: 'Go Language Topic Generator', link: '/sources/gemini-gem-prompt/contents/3-go-topic-gen' },
+            { text: 'トップ', link: '/gemini-gem-prompt/' },
+            { text: 'Apple Ecosystem Topic Generator', link: '/gemini-gem-prompt/contents/1-apple-ecosystem-topic-gen' },
+            { text: 'Flutter Topic Generator', link: '/gemini-gem-prompt/contents/2-flutter-topic-gen' },
+            { text: 'Go Language Topic Generator', link: '/gemini-gem-prompt/contents/3-go-topic-gen' },
           ]
         },
       ],
