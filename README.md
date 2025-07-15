@@ -50,29 +50,8 @@ features:
 
 **⚠️ 注意**: `features:`セクションの既存項目の後に追加し、インデントを必ず合わせてください。
 
-#### ステップ4: ナビゲーション設定の更新
-`.vitepress/config.mts`ファイルを開き、**2箇所**を更新します：
-
-**4-1. navセクションの更新**
-`nav:`配列内の**最後に**以下を追加：
-```typescript
-      { text: 'React', link: '/sources/react/' }
-```
-
-**完全な例（参考）：**
-```typescript
-nav: [
-  { text: 'ホーム', link: '/' },
-  { text: 'Apple Ecosystem', link: '/sources/apple-ecosystem/' },
-  { text: 'Flutter', link: '/sources/flutter/' },
-  { text: 'Python', link: '/sources/python/' },
-  { text: 'Gemini Gem', link: '/sources/gemini-gem-prompt/' },
-  { text: 'React', link: '/sources/react/' }
-],
-```
-
-**4-2. sidebarセクションの更新**
-`sidebar:`オブジェクト内の**最後に**以下を追加：
+#### ステップ4: サイドバー設定の更新
+`.vitepress/config.mts`ファイルを開き、`sidebar:`オブジェクト内の**最後に**以下を追加：
 ```typescript
       '/sources/react/': [
         {
@@ -135,15 +114,9 @@ rm -rf sources/react
     link: /react/
 ```
 
-#### ステップ3: ナビゲーション設定の更新
-`.vitepress/config.mts`から**2箇所**を削除：
+#### ステップ3: サイドバー設定の更新
+`.vitepress/config.mts`からサイドバーの項目を削除します。
 
-**3-1. navセクションから削除**
-```typescript
-      { text: 'React', link: '/sources/react/' }  # この行を削除
-```
-
-**3-2. sidebarセクションから削除**
 ```typescript
       '/sources/react/': [    # この全体を削除
         {
