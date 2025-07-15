@@ -201,9 +201,3 @@ rm docs/react/contents/3-testing.md
 #### ビルドエラーが発生する場合
 - YAML構文エラー（インデント、コロン、ダッシュ）を確認
 - TypeScript構文エラー（カンマ、ブラケット）を確認
-
-## 現在のカテゴリ
-
-- **iOS**: Swift、UIKit、SwiftUIを使ったiOSアプリ開発
-- **Flutter**: Dartを使ったクロスプラットフォーム開発  
-- **Prompt**: AI向けの効果的なプロンプト集

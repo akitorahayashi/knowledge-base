@@ -15,4 +15,4 @@ features:
   - title: Go Topic Generator
     details: Go言語開発に関するトピック生成用プロンプト
     link: /docs/gemini-gem-prompt/contents/3-go-topic-gen
---- 
+---

@@ -238,51 +238,51 @@ func TestCreateTodo(t *testing.T) {
     // Setup
     service := NewTodoService()
     handler := NewTodoHandler(service)
-    
+
     // Test data
     todoReq := TodoRequest{
         Title:       "買い物",
         Description: "牛乳とパンを買う",
         Completed:   false,
     }
-    
+
     reqBody, err := json.Marshal(todoReq)
     if err != nil {
         t.Fatalf("Failed to marshal request: %v", err)
     }
-    
+
     // Create request
     req := httptest.NewRequest(http.MethodPost, "/todos", bytes.NewReader(reqBody))
     req.Header.Set("Content-Type", "application/json")
-    
+
     // Create response recorder
     rr := httptest.NewRecorder()
-    
+
     // Call handler
     handler.CreateTodo(rr, req)
-    
+
     // Assertions
     if status := rr.Code; status != http.StatusCreated {
         t.Errorf("Expected status %v, got %v", http.StatusCreated, status)
     }
-    
+
     var response TodoResponse
     if err := json.Unmarshal(rr.Body.Bytes(), &response); err != nil {
         t.Fatalf("Failed to unmarshal response: %v", err)
     }
-    
+
     if !response.Success {
         t.Errorf("Expected success=true, got %v", response.Success)
     }
-    
+
     if response.Data == nil {
         t.Fatal("Expected data field, got nil")
     }
-    
+
     if response.Data.Title != todoReq.Title {
         t.Errorf("Expected title %v, got %v", todoReq.Title, response.Data.Title)
     }
-    
+
     if response.Data.ID == 0 {
         t.Error("Expected non-zero ID")
     }
@@ -322,7 +322,7 @@ func NewTodoService() *TodoService {
 func (s *TodoService) CreateTodo(req TodoRequest) *Todo {
     s.mutex.Lock()
     defer s.mutex.Unlock()
-    
+
     now := time.Now()
     todo := Todo{
         ID:          s.nextID,
@@ -332,10 +332,10 @@ func (s *TodoService) CreateTodo(req TodoRequest) *Todo {
         CreatedAt:   now,
         UpdatedAt:   now,
     }
-    
+
     s.todos = append(s.todos, todo)
     s.nextID++
-    
+
     return &todo
 }
 
@@ -356,7 +356,7 @@ func (h *TodoHandler) CreateTodo(w http.ResponseWriter, r *http.Request) {
         http.Error(w, "Invalid JSON", http.StatusBadRequest)
         return
     }
-    
+
     // Basic validation
     if req.Title == "" {
         response := TodoResponse{
@@ -368,15 +368,15 @@ func (h *TodoHandler) CreateTodo(w http.ResponseWriter, r *http.Request) {
         json.NewEncoder(w).Encode(response)
         return
     }
-    
+
     todo := h.service.CreateTodo(req)
-    
+
     response := TodoResponse{
         Success: true,
         Message: "Todo created successfully",
         Data:    todo,
     }
-    
+
     w.Header().Set("Content-Type", "application/json")
     w.WriteHeader(http.StatusCreated)
     json.NewEncoder(w).Encode(response)
@@ -398,36 +398,36 @@ func TestGetTodos(t *testing.T) {
     // Setup
     service := NewTodoService()
     handler := NewTodoHandler(service)
-    
+
     // Create test data
     service.CreateTodo(TodoRequest{Title: "タスク1", Description: "説明1"})
     service.CreateTodo(TodoRequest{Title: "タスク2", Description: "説明2"})
-    
+
     // Create request
     req := httptest.NewRequest(http.MethodGet, "/todos", nil)
     rr := httptest.NewRecorder()
-    
+
     // Call handler
     handler.GetTodos(rr, req)
-    
+
     // Assertions
     if status := rr.Code; status != http.StatusOK {
         t.Errorf("Expected status %v, got %v", http.StatusOK, status)
     }
-    
+
     var response TodoListResponse
     if err := json.Unmarshal(rr.Body.Bytes(), &response); err != nil {
         t.Fatalf("Failed to unmarshal response: %v", err)
     }
-    
+
     if !response.Success {
         t.Errorf("Expected success=true, got %v", response.Success)
     }
-    
+
     if response.Total != 2 {
         t.Errorf("Expected total=2, got %v", response.Total)
     }
-    
+
     if len(response.Data) != 2 {
         t.Errorf("Expected 2 todos, got %v", len(response.Data))
     }
@@ -437,27 +437,27 @@ func TestGetTodoByID(t *testing.T) {
     // Setup
     service := NewTodoService()
     handler := NewTodoHandler(service)
-    
+
     // Create test data
     todo := service.CreateTodo(TodoRequest{Title: "テストタスク", Description: "テスト説明"})
-    
+
     // Create request
     req := httptest.NewRequest(http.MethodGet, "/todos/1", nil)
     rr := httptest.NewRecorder()
-    
+
     // Call handler (we'll need to set up URL parameters)
     handler.GetTodoByID(rr, req, 1) // Simplified for testing
-    
+
     // Assertions
     if status := rr.Code; status != http.StatusOK {
         t.Errorf("Expected status %v, got %v", http.StatusOK, status)
     }
-    
+
     var response TodoResponse
     if err := json.Unmarshal(rr.Body.Bytes(), &response); err != nil {
         t.Fatalf("Failed to unmarshal response: %v", err)
     }
-    
+
     if response.Data.ID != todo.ID {
         t.Errorf("Expected ID %v, got %v", todo.ID, response.Data.ID)
     }
@@ -471,7 +471,7 @@ func TestGetTodoByID(t *testing.T) {
 func (s *TodoService) GetTodos() []Todo {
     s.mutex.RLock()
     defer s.mutex.RUnlock()
-    
+
     // Return a copy to prevent external modification
     result := make([]Todo, len(s.todos))
     copy(result, s.todos)
@@ -482,7 +482,7 @@ func (s *TodoService) GetTodos() []Todo {
 func (s *TodoService) GetTodoByID(id int) (*Todo, bool) {
     s.mutex.RLock()
     defer s.mutex.RUnlock()
-    
+
     for _, todo := range s.todos {
         if todo.ID == id {
             // Return a copy
@@ -496,14 +496,14 @@ func (s *TodoService) GetTodoByID(id int) (*Todo, bool) {
 // GetTodos handles GET /todos
 func (h *TodoHandler) GetTodos(w http.ResponseWriter, r *http.Request) {
     todos := h.service.GetTodos()
-    
+
     response := TodoListResponse{
         Success: true,
         Message: "Todos retrieved successfully",
         Data:    todos,
         Total:   len(todos),
     }
-    
+
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(response)
 }
@@ -521,13 +521,13 @@ func (h *TodoHandler) GetTodoByID(w http.ResponseWriter, r *http.Request, id int
         json.NewEncoder(w).Encode(response)
         return
     }
-    
+
     response := TodoResponse{
         Success: true,
         Message: "Todo retrieved successfully",
         Data:    todo,
     }
-    
+
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(response)
 }
@@ -544,37 +544,37 @@ func TestUpdateTodo(t *testing.T) {
     // Setup
     service := NewTodoService()
     handler := NewTodoHandler(service)
-    
+
     // Create initial todo
     service.CreateTodo(TodoRequest{Title: "古いタイトル", Description: "古い説明"})
-    
+
     // Update request
     updateReq := TodoRequest{
         Title:       "新しいタイトル",
         Description: "新しい説明",
         Completed:   true,
     }
-    
+
     reqBody, _ := json.Marshal(updateReq)
     req := httptest.NewRequest(http.MethodPut, "/todos/1", bytes.NewReader(reqBody))
     req.Header.Set("Content-Type", "application/json")
     rr := httptest.NewRecorder()
-    
+
     // Call handler
     handler.UpdateTodo(rr, req, 1)
-    
+
     // Assertions
     if status := rr.Code; status != http.StatusOK {
         t.Errorf("Expected status %v, got %v", http.StatusOK, status)
     }
-    
+
     var response TodoResponse
     json.Unmarshal(rr.Body.Bytes(), &response)
-    
+
     if response.Data.Title != updateReq.Title {
         t.Errorf("Expected title %v, got %v", updateReq.Title, response.Data.Title)
     }
-    
+
     if !response.Data.Completed {
         t.Error("Expected completed=true")
     }
@@ -588,14 +588,14 @@ func TestUpdateTodo(t *testing.T) {
 func (s *TodoService) UpdateTodo(id int, req TodoRequest) (*Todo, bool) {
     s.mutex.Lock()
     defer s.mutex.Unlock()
-    
+
     for i, todo := range s.todos {
         if todo.ID == id {
             s.todos[i].Title = req.Title
             s.todos[i].Description = req.Description
             s.todos[i].Completed = req.Completed
             s.todos[i].UpdatedAt = time.Now()
-            
+
             // Return a copy
             updated := s.todos[i]
             return &updated, true
@@ -611,7 +611,7 @@ func (h *TodoHandler) UpdateTodo(w http.ResponseWriter, r *http.Request, id int)
         http.Error(w, "Invalid JSON", http.StatusBadRequest)
         return
     }
-    
+
     if req.Title == "" {
         response := TodoResponse{
             Success: false,
@@ -622,7 +622,7 @@ func (h *TodoHandler) UpdateTodo(w http.ResponseWriter, r *http.Request, id int)
         json.NewEncoder(w).Encode(response)
         return
     }
-    
+
     todo, found := h.service.UpdateTodo(id, req)
     if !found {
         response := TodoResponse{
@@ -634,13 +634,13 @@ func (h *TodoHandler) UpdateTodo(w http.ResponseWriter, r *http.Request, id int)
         json.NewEncoder(w).Encode(response)
         return
     }
-    
+
     response := TodoResponse{
         Success: true,
         Message: "Todo updated successfully",
         Data:    todo,
     }
-    
+
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(response)
 }
@@ -657,29 +657,29 @@ func TestDeleteTodo(t *testing.T) {
     // Setup
     service := NewTodoService()
     handler := NewTodoHandler(service)
-    
+
     // Create test data
     service.CreateTodo(TodoRequest{Title: "削除するタスク"})
     service.CreateTodo(TodoRequest{Title: "残すタスク"})
-    
+
     // Delete request
     req := httptest.NewRequest(http.MethodDelete, "/todos/1", nil)
     rr := httptest.NewRecorder()
-    
+
     // Call handler
     handler.DeleteTodo(rr, req, 1)
-    
+
     // Assertions
     if status := rr.Code; status != http.StatusOK {
         t.Errorf("Expected status %v, got %v", http.StatusOK, status)
     }
-    
+
     // Verify todo is deleted
     todos := service.GetTodos()
     if len(todos) != 1 {
         t.Errorf("Expected 1 todo remaining, got %v", len(todos))
     }
-    
+
     if todos[0].Title != "残すタスク" {
         t.Errorf("Wrong todo remained: %v", todos[0].Title)
     }
@@ -693,7 +693,7 @@ func TestDeleteTodo(t *testing.T) {
 func (s *TodoService) DeleteTodo(id int) bool {
     s.mutex.Lock()
     defer s.mutex.Unlock()
-    
+
     for i, todo := range s.todos {
         if todo.ID == id {
             // Remove from slice
@@ -717,12 +717,12 @@ func (h *TodoHandler) DeleteTodo(w http.ResponseWriter, r *http.Request, id int)
         json.NewEncoder(w).Encode(response)
         return
     }
-    
+
     response := TodoResponse{
         Success: true,
         Message: "Todo deleted successfully",
     }
-    
+
     w.Header().Set("Content-Type", "application/json")
     json.NewEncoder(w).Encode(response)
 }
@@ -737,7 +737,7 @@ func TestTodoAPI_Integration(t *testing.T) {
     // Setup server
     service := NewTodoService()
     handler := NewTodoHandler(service)
-    
+
     mux := http.NewServeMux()
     mux.HandleFunc("/todos", func(w http.ResponseWriter, r *http.Request) {
         switch r.Method {
@@ -749,38 +749,38 @@ func TestTodoAPI_Integration(t *testing.T) {
             http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
         }
     })
-    
+
     server := httptest.NewServer(mux)
     defer server.Close()
-    
+
     // Test Create
     todoReq := TodoRequest{Title: "統合テスト", Description: "E2Eテスト"}
     reqBody, _ := json.Marshal(todoReq)
-    
+
     resp, err := http.Post(server.URL+"/todos", "application/json", bytes.NewReader(reqBody))
     if err != nil {
         t.Fatalf("Failed to make request: %v", err)
     }
     defer resp.Body.Close()
-    
+
     if resp.StatusCode != http.StatusCreated {
         t.Errorf("Expected status %v, got %v", http.StatusCreated, resp.StatusCode)
     }
-    
+
     // Test Get All
     resp, err = http.Get(server.URL + "/todos")
     if err != nil {
         t.Fatalf("Failed to make request: %v", err)
     }
     defer resp.Body.Close()
-    
+
     if resp.StatusCode != http.StatusOK {
         t.Errorf("Expected status %v, got %v", http.StatusOK, resp.StatusCode)
     }
-    
+
     var listResponse TodoListResponse
     json.NewDecoder(resp.Body).Decode(&listResponse)
-    
+
     if listResponse.Total != 1 {
         t.Errorf("Expected 1 todo, got %v", listResponse.Total)
     }
@@ -809,4 +809,4 @@ func TestTodoAPI_Integration(t *testing.T) {
 ### 最新動向
 - Go 1.21+のテスト機能強化とFuzzing
 - テーブルドリブンテストとSubtest活用
-- CI/CDパイプラインでのGo テスト自動化 
+- CI/CDパイプラインでのGo テスト自動化

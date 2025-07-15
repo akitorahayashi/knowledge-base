@@ -1,0 +1,12 @@
+{
+  "name": "export-pdf",
+  "version": "1.0.0",
+  "main": "export-pdf.js",
+  "bin": {
+    "export-pdf": "./export-pdf.js"
+  },
+  "dependencies": {
+    "playwright": "^1.44.1",
+    "vitepress": "^1.6.3"
+  }
+}

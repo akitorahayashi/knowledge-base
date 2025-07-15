@@ -172,7 +172,7 @@ struct ToDoItem: Identifiable, Equatable {
     let id: UUID
     var title: String
     var isCompleted: Bool
-    
+
     init(id: UUID = UUID(), title: String, isCompleted: Bool = false) {
         self.id = id
         self.title = title
@@ -201,25 +201,25 @@ import Combine
 final class ToDoStoreTests: XCTestCase {
     var store: ToDoStore!
     var cancellables: Set<AnyCancellable>!
-    
+
     override func setUp() {
         super.setUp()
         store = ToDoStore()
         cancellables = []
     }
-    
+
     override func tearDown() {
         store = nil
         cancellables = nil
         super.tearDown()
     }
-    
+
     func testAddToDoItem() {
         let initialCount = store.toDoItems.count
         let newItemTitle = "牛乳を買う"
-        
+
         store.add(title: newItemTitle)
-        
+
         XCTAssertEqual(store.toDoItems.count, initialCount + 1, "ToDoアイテムが1つ増えるべき")
         XCTAssertEqual(store.toDoItems.last?.title, newItemTitle, "追加されたアイテムのタイトルが正しいべき")
         XCTAssertFalse(store.toDoItems.last?.isCompleted ?? true, "追加されたアイテムは未完了であるべき")
@@ -237,7 +237,7 @@ import Combine
 
 class ToDoStore: ObservableObject {
     @Published var toDoItems: [ToDoItem] = []
-    
+
     func add(title: String) {
         let newItem = ToDoItem(title: title)
         toDoItems.append(newItem)
@@ -266,7 +266,7 @@ func testInitialStateIsEmpty() {
 func testFetchAllToDoItemsAfterAdding() {
     store.add(title: "タスクA")
     store.add(title: "タスクB")
-    
+
     XCTAssertEqual(store.toDoItems.count, 2, "2つのアイテムが正しく取得されるべき")
     XCTAssertEqual(store.toDoItems[0].title, "タスクA")
     XCTAssertEqual(store.toDoItems[1].title, "タスクB")
@@ -295,10 +295,10 @@ func testToggleToDoItemCompletion() {
         XCTFail("アイテムが見つかりません")
         return
     }
-    
+
     store.toggleCompletion(for: itemToUpdate)
     XCTAssertTrue(store.toDoItems.first(where: { $0.id == itemToUpdate.id })?.isCompleted ?? false, "アイテムは完了済みであるべき")
-    
+
     store.toggleCompletion(for: itemToUpdate) // 再度トグル
     XCTAssertFalse(store.toDoItems.first(where: { $0.id == itemToUpdate.id })?.isCompleted ?? true, "アイテムは未完了に戻るべき")
 }
@@ -309,11 +309,11 @@ func testUpdateToDoItemTitle() {
         XCTFail("アイテムが見つかりません")
         return
     }
-    
+
     let newTitle = "新しいタイトル"
     itemToUpdate.title = newTitle // ローカルでタイトルを更新
     store.update(item: itemToUpdate) // Storeに更新を反映
-    
+
     XCTAssertEqual(store.toDoItems.first?.title, newTitle, "アイテムのタイトルが更新されるべき")
 }
 ```
@@ -328,7 +328,7 @@ extension ToDoStore {
             toDoItems[index].isCompleted.toggle()
         }
     }
-    
+
     func update(item: ToDoItem) {
         if let index = toDoItems.firstIndex(where: { $0.id == item.id }) {
             toDoItems[index] = item
@@ -352,16 +352,16 @@ extension ToDoStore {
 func testDeleteToDoItem() {
     store.add(title: "削除するタスク")
     store.add(title: "残るタスク")
-    
+
     guard let itemToDelete = store.toDoItems.first else {
         XCTFail("アイテムが見つかりません")
         return
     }
-    
+
     // IndexSetを作成し、最初のアイテムを削除対象とする
     let indexToDelete = store.toDoItems.firstIndex(where: { $0.id == itemToDelete.id })!
     store.delete(at: IndexSet(integer: indexToDelete))
-    
+
     XCTAssertEqual(store.toDoItems.count, 1, "アイテムが1つ削除されるべき")
     XCTAssertFalse(store.toDoItems.contains(where: { $0.id == itemToDelete.id }), "削除されたアイテムはリストに存在しないべき")
     XCTAssertEqual(store.toDoItems.first?.title, "残るタスク", "正しいアイテムが残っているべき")
@@ -396,7 +396,7 @@ UI TestでUI要素を正確に識別するために、各Viewに`.accessibilityI
 struct ToDoListView: View {
     @ObservedObject var store: ToDoStore
     @State private var newItemTitle: String = ""
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -411,7 +411,7 @@ struct ToDoListView: View {
                     .accessibilityIdentifier("addButton") // UI Test用識別子
                 }
                 .padding()
-                
+
                 List {
                     ForEach(store.toDoItems) { item in
                         HStack {
@@ -447,51 +447,51 @@ import XCTest
 
 final class ToDoAppUITests: XCTestCase {
     var app: XCUIApplication!
-    
+
     override func setUpWithError() throws {
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
     }
-    
+
     func testAddAndVerifyToDoItem() {
         let newItemTextField = app.textFields["newItemTextField"]
         let addButton = app.buttons["addButton"]
         let initialCount = app.tables.cells.count // またはリストの数を数える
-        
+
         // 新しいアイテムを追加
         newItemTextField.tap()
         newItemTextField.typeText("朝食をとる")
         addButton.tap()
-        
+
         // アイテムがリストに追加されたことを確認
         XCTAssertEqual(app.tables.cells.count, initialCount + 1, "アイテムがリストに追加されるべき")
         XCTAssertTrue(app.staticTexts["朝食をとる"].exists, "追加したアイテムのタイトルが表示されるべき")
     }
-    
+
     func testToggleCompletionAndVerify() {
         // 事前にアイテムを追加しておく（またはテストランの前にクリーンアップ）
         app.textFields["newItemTextField"].tap()
         app.textFields["newItemTextField"].typeText("完了させるタスク")
         app.buttons["addButton"].tap()
-        
+
         let taskCell = app.staticTexts["完了させるタスク"]
         XCTAssertTrue(taskCell.exists, "タスクが存在するべき")
-        
+
         // タスクをタップして完了状態を切り替える
         taskCell.tap()
-        
+
         // 完了状態が視覚的に更新されたことを確認
         // 例: 完了状態を示す画像やテキストが存在するかで判断
         // ここでは、SwiftUIのアクセシビリティ値を使って検証
         let updatedTaskCell = app.cells.containing(.staticText, identifier: "完了させるタスク").firstMatch
         XCTAssertEqual(updatedTaskCell.value as? String, "完了", "タスクが完了状態であるべき")
-        
+
         // 再度タップして未完了に戻す
         taskCell.tap()
         XCTAssertEqual(updatedTaskCell.value as? String, "未完了", "タスクが未完了状態に戻るべき")
     }
-    
+
     func testDeleteToDoItem() {
         // 事前に複数のアイテムを追加
         app.textFields["newItemTextField"].tap()
@@ -499,14 +499,14 @@ final class ToDoAppUITests: XCTestCase {
         app.buttons["addButton"].tap()
         app.textFields["newItemTextField"].typeText("残すタスク")
         app.buttons["addButton"].tap()
-        
+
         let taskToDelete = app.staticTexts["削除するタスク"]
         XCTAssertTrue(taskToDelete.exists, "削除するタスクが存在するべき")
-        
+
         // スワイプして削除ボタンをタップ
         taskToDelete.swipeLeft()
         app.buttons["削除"].tap()
-        
+
         // アイテムが削除されたことを確認
         XCTAssertFalse(taskToDelete.exists, "削除されたタスクは存在しないべき")
         XCTAssertTrue(app.staticTexts["残すタスク"].exists, "残すタスクは存在すべき")

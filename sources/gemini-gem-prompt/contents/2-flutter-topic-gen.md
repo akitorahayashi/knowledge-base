@@ -220,10 +220,10 @@ void main() {
       // Given
       const title = '牛乳を買う';
       final initialList = container.read(todoProvider);
-      
+
       // When
       await container.read(todoProvider.notifier).addTodo(title);
-      
+
       // Then
       final updatedList = container.read(todoProvider);
       expect(updatedList.length, initialList.length + 1);
@@ -248,13 +248,13 @@ class TodoNotifier extends StateNotifier<List<TodoItem>> {
 
   Future<void> addTodo(String title) async {
     if (title.trim().isEmpty) return;
-    
+
     final newTodo = TodoItem(
       id: const Uuid().v4(),
       title: title.trim(),
       createdAt: DateTime.now(),
     );
-    
+
     state = [...state, newTodo];
   }
 }
@@ -284,12 +284,12 @@ test('should start with empty todo list', () {
 test('should return all todos after adding multiple items', () async {
   // Given
   const titles = ['タスクA', 'タスクB', 'タスクC'];
-  
+
   // When
   for (final title in titles) {
     await container.read(todoProvider.notifier).addTodo(title);
   }
-  
+
   // Then
   final todoList = container.read(todoProvider);
   expect(todoList.length, 3);
@@ -317,17 +317,17 @@ test('should toggle todo completion status', () async {
   // Given
   await container.read(todoProvider.notifier).addTodo('完了するタスク');
   final todo = container.read(todoProvider).first;
-  
+
   // When
   await container.read(todoProvider.notifier).toggleCompletion(todo.id);
-  
+
   // Then
   final updatedTodo = container.read(todoProvider).firstWhere((t) => t.id == todo.id);
   expect(updatedTodo.isCompleted, true);
-  
+
   // When (再度トグル)
   await container.read(todoProvider.notifier).toggleCompletion(todo.id);
-  
+
   // Then
   final reToggledTodo = container.read(todoProvider).firstWhere((t) => t.id == todo.id);
   expect(reToggledTodo.isCompleted, false);
@@ -338,10 +338,10 @@ test('should update todo title', () async {
   await container.read(todoProvider.notifier).addTodo('古いタイトル');
   final todo = container.read(todoProvider).first;
   const newTitle = '新しいタイトル';
-  
+
   // When
   await container.read(todoProvider.notifier).updateTodo(todo.id, newTitle);
-  
+
   // Then
   final updatedTodo = container.read(todoProvider).firstWhere((t) => t.id == todo.id);
   expect(updatedTodo.title, newTitle);
@@ -363,7 +363,7 @@ Future<void> toggleCompletion(String id) async {
 
 Future<void> updateTodo(String id, String newTitle) async {
   if (newTitle.trim().isEmpty) return;
-  
+
   state = state.map((todo) {
     if (todo.id == id) {
       return todo.copyWith(title: newTitle.trim());
@@ -389,13 +389,13 @@ test('should delete todo item by id', () async {
   // Given
   await container.read(todoProvider.notifier).addTodo('削除するタスク');
   await container.read(todoProvider.notifier).addTodo('残るタスク');
-  
+
   final todoToDelete = container.read(todoProvider).first;
   final initialCount = container.read(todoProvider).length;
-  
+
   // When
   await container.read(todoProvider.notifier).deleteTodo(todoToDelete.id);
-  
+
   // Then
   final updatedList = container.read(todoProvider);
   expect(updatedList.length, initialCount - 1);
@@ -700,4 +700,4 @@ void main() {
 ### 最新動向
 - Dart 3.xの新機能を活用したテスト手法
 - Flutter 3.xでの新しいテストツールと最適化
-- CI/CDパイプラインでのFlutterテスト自動化 
+- CI/CDパイプラインでのFlutterテスト自動化
