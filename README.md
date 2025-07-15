@@ -1,15 +1,14 @@
 ## 概要
 
-VitePressを使用した開発技術ブログです
+VitePressを使用して作成した、開発に関するナレッジを集めたサイトです
 
 ## 利用可能なコマンド
 
 | コマンド | 説明 |
 | --- | --- |
 | `npx vitepress dev` | 開発モードでブログサイトを起動します。ファイルの変更はリアルタイムに反映されます。 |
-| `npx vitepress build` | 本番環境用にブログサイトをビルドし、`.vitepress/dist` フォルダに出力し、最適化された静적ファイルが生成され、デプロイ可能な状態になります。 |
-| `npx vitepress preview`| ビルドされた本番用サイトをローカルでプレビューし、デプロイ前に最終確認を行います。 |
-| `npx export-pdf --input <Markdownファイルのパス> --server <サーバーのURL>` | 指定したMarkdownファイルをPDFとしてエクスポートします。 |
+| `npx vitepress build` | 本番環境用にブログサイトをビルドし、`.vitepress/dist` に静적ファイルが生成され、デプロイ可能な状態になります。 |
+| `npx export-pdf --url <ページのURL>` | 指定したページをPDFとして出力します。 |
 
 ## コンテンツの追加・削除方法
 
@@ -51,7 +50,7 @@ features:
 **⚠️ 注意**: `features:`セクションの既存項目の後に追加し、インデントを必ず合わせてください。
 
 #### ステップ4: サイドバー設定の更新
-`.vitepress/config.mts`ファイルを開き、`sidebar:`オブジェクト内の**最後に**以下を追加：
+`.vitepress/config.mts`ファイルを開き、`sidebar:`オブジェクト内の最後に以下を追加：
 ```typescript
       '/sources/react/': [
         {

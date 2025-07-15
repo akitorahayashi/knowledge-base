@@ -48,44 +48,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const puppeteer_1 = __importDefault(require("puppeteer"));
 const path = __importStar(require("path"));
-const url_1 = require("url");
 const fs = __importStar(require("fs"));
 (() => __awaiter(void 0, void 0, void 0, function* () {
-    // コマンドライン引数から--inputオプションとサーバーURLを取得
-    // 例: npx export-pdf --input sources/app/ios/some-feature.md http://localhost:5173/
-    // コマンドライン引数から--inputと--serverオプションを取得
-    // 例: npx export-pdf --input sources/app/ios/some-feature.md --server http://localhost:5173/
     const args = process.argv.slice(2);
-    let mdFilePathArg;
-    let devServerBaseUrlArg;
+    let urlArg;
     for (let i = 0; i < args.length; i++) {
-        if (args[i] === '--input' && args[i + 1]) {
-            mdFilePathArg = args[i + 1];
-            i++;
-        }
-        else if (args[i] === '--server' && args[i + 1]) {
-            devServerBaseUrlArg = args[i + 1];
+        if (args[i] === '--url' && args[i + 1]) {
+            urlArg = args[i + 1];
             i++;
         }
     }
-    if (!mdFilePathArg || !devServerBaseUrlArg) {
-        console.error('Markdownファイルのパス(--input)とサーバーURL(--server)を指定してください。');
-        console.error('例: npx export-pdf --input sources/app/ios/some-feature.md --server http://localhost:5173/');
+    if (!urlArg) {
+        console.error('ページURL(--url)を指定してください。');
+        console.error('例: npx export-pdf --url http://localhost:5173/apple-ecosystem/index.html');
         process.exit(1);
     }
-    // .md → .html に変換（sources/は自動的に除外されます）
-    let pagePath = mdFilePathArg.replace(/\.md$/, '.html');
-    // sources/で始まる場合は必ず除外
-    if (pagePath.startsWith('sources/')) {
-        pagePath = pagePath.substring('sources/'.length);
-    }
-    const targetUrl = new url_1.URL(pagePath, devServerBaseUrlArg).toString();
-    // PDF出力パス生成（pdfディレクトリ直下にファイル名のみで保存）
+    const targetUrl = urlArg;
+    // PDF出力パス生成（pdfディレクトリ直下にURL末尾からファイル名を生成）
     const projectRoot = process.cwd();
-    const pdfFileName = path.basename(mdFilePathArg, '.md') + '.pdf';
+    let pdfFileName = path.basename(targetUrl);
+    if (pdfFileName.endsWith('.html')) {
+        pdfFileName = pdfFileName.replace(/\.html$/, '.pdf');
+    }
+    else if (pdfFileName === '') {
+        // URLが/で終わる場合
+        pdfFileName = 'index.pdf';
+    }
+    else {
+        pdfFileName += '.pdf';
+    }
     const pdfPath = path.join(projectRoot, 'packages', 'export-pdf', 'pdf', pdfFileName);
-    console.log(`対象のMarkdownファイル: ${mdFilePathArg}`);
-    console.log(`開発サーバーURL: ${devServerBaseUrlArg}`);
     console.log(`PuppeteerでアクセスするURL: ${targetUrl}`);
     console.log(`PDFの出力先: ${pdfPath}`);
     let browser;

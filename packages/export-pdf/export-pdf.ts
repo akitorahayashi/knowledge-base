@@ -1,50 +1,44 @@
 #!/usr/bin/env node
 import puppeteer, { Browser } from 'puppeteer';
 import * as path from 'path';
-import { URL } from 'url';
 import * as fs from 'fs';
+
 
 (async () => {
     const args = process.argv.slice(2);
-    let mdFilePathArg: string | undefined;
-    let devServerBaseUrlArg: string | undefined;
+    let urlArg: string | undefined;
 
     for (let i = 0; i < args.length; i++) {
-        if (args[i] === '--input' && args[i + 1]) {
-            mdFilePathArg = args[i + 1];
-            i++;
-        } else if (args[i] === '--server' && args[i + 1]) {
-            devServerBaseUrlArg = args[i + 1];
+        if (args[i] === '--url' && args[i + 1]) {
+            urlArg = args[i + 1];
             i++;
         }
     }
 
-    if (!mdFilePathArg || !devServerBaseUrlArg) {
-        console.error('Markdownファイルのパス(--input)とサーバーURL(--server)を指定してください。');
-        console.error('例: npx export-pdf --input sources/app/ios/some-feature.md --server http://localhost:5173/');
+    if (!urlArg) {
+        console.error('ページURL(--url)を指定してください。');
+        console.error('例: npx export-pdf --url http://localhost:5173/apple-ecosystem/index.html');
         process.exit(1);
     }
 
-    // .md → .html に変換（sources/は自動的に除外されます）
-    let pagePath = mdFilePathArg.replace(/\.md$/, '.html');
-    // sources/で始まる場合は除外
-    if (pagePath.startsWith('sources/')) {
-        pagePath = pagePath.substring('sources/'.length);
-    }
+    const targetUrl: string = urlArg;
 
-    const targetUrl: string = new URL(pagePath, devServerBaseUrlArg).toString();
-
-
-    // PDF出力パス生成（pdfディレクトリ直下にファイル名のみで保存）
+    // PDF出力パスを生成（pdfディレクトリ直下にURL末尾からファイル名を生成）
     const projectRoot: string = process.cwd();
-    const pdfFileName: string = path.basename(mdFilePathArg, '.md') + '.pdf';
+    let pdfFileName: string = path.basename(targetUrl);
+
+    if (pdfFileName.endsWith('.html')) {
+        pdfFileName = pdfFileName.replace(/\.html$/, '.pdf');
+    } else if (pdfFileName === '') {
+        // URLが/で終わる場合
+        pdfFileName = 'index.pdf';
+    } else {
+        pdfFileName += '.pdf';
+    }
     const pdfPath: string = path.join(projectRoot, 'packages', 'export-pdf', 'pdf', pdfFileName);
 
-    console.log(`対象のMarkdownファイル: ${mdFilePathArg}`);
-    console.log(`サーバーURL: ${devServerBaseUrlArg}`);
     console.log(`PuppeteerでアクセスするURL: ${targetUrl}`);
     console.log(`PDFの出力先: ${pdfPath}`);
-
 
     let browser: Browser | undefined;
     try {

@@ -1,7 +1,6 @@
 # VitePress cache
-.vitepress/cache/
-# Build output
-.vitepress/dist/
+**/.vitepress/cache/
+**/.vitepress/dist/
 
 # Node modules
 node_modules/

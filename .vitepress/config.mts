@@ -58,7 +58,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/atrh95' }
+      { icon: 'github', link: 'https://github.com/akitorahayashi' }
     ],
     docFooter: { prev: false, next: false }
   }
