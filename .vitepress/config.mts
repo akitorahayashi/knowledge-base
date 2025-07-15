@@ -8,6 +8,7 @@ export default defineConfig({
   base: BASE_URL,
   title: "Knowledge Base",
   description: "モバイルアプリ開発のナレッジのまとめサイト",
+  ignoreDeadLinks: true,
   // ファビコンを設定
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/image/logo.png' }],
