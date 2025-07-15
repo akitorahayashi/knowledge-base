@@ -9,7 +9,7 @@ VitePressを使用した開発技術ブログです
 | `npx vitepress dev` | 開発モードでブログサイトを起動します。ファイルの変更はリアルタイムに反映されます。 |
 | `npx vitepress build` | 本番環境用にブログサイトをビルドし、`.vitepress/dist` フォルダに出力し、最適化された静적ファイルが生成され、デプロイ可能な状態になります。 |
 | `npx vitepress preview`| ビルドされた本番用サイトをローカルでプレビューし、デプロイ前に最終確認を行います。 |
-| `npx export-pdf -- <Markdownファイルのパス> <開発サーバーのURL>` | 指定したMarkdownファイルをPDFとしてエクスポートします。 |
+| `npx export-pdf --input <Markdownファイルのパス> --server <サーバーのURL>` | 指定したMarkdownファイルをPDFとしてエクスポートします。 |
 
 ## コンテンツの追加・削除方法
 

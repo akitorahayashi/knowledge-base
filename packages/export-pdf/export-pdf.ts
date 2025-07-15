@@ -5,10 +5,6 @@ import { URL } from 'url';
 import * as fs from 'fs';
 
 (async () => {
-    // コマンドライン引数から--inputオプションとサーバーURLを取得
-    // 例: npx export-pdf --input sources/app/ios/some-feature.md http://localhost:5173/
-    // コマンドライン引数から--inputと--serverオプションを取得
-    // 例: npx export-pdf --input sources/app/ios/some-feature.md --server http://localhost:5173/
     const args = process.argv.slice(2);
     let mdFilePathArg: string | undefined;
     let devServerBaseUrlArg: string | undefined;
@@ -31,7 +27,7 @@ import * as fs from 'fs';
 
     // .md → .html に変換（sources/は自動的に除外されます）
     let pagePath = mdFilePathArg.replace(/\.md$/, '.html');
-    // sources/で始まる場合は必ず除外
+    // sources/で始まる場合は除外
     if (pagePath.startsWith('sources/')) {
         pagePath = pagePath.substring('sources/'.length);
     }
@@ -45,7 +41,7 @@ import * as fs from 'fs';
     const pdfPath: string = path.join(projectRoot, 'packages', 'export-pdf', 'pdf', pdfFileName);
 
     console.log(`対象のMarkdownファイル: ${mdFilePathArg}`);
-    console.log(`開発サーバーURL: ${devServerBaseUrlArg}`);
+    console.log(`サーバーURL: ${devServerBaseUrlArg}`);
     console.log(`PuppeteerでアクセスするURL: ${targetUrl}`);
     console.log(`PDFの出力先: ${pdfPath}`);
 

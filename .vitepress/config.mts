@@ -13,12 +13,13 @@ export default defineConfig({
   // ファビコンを設定
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/image/logo.png' }],
-    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/knowledge-base/image/logo.png' }],
+    ['link', { rel: 'manifest', href: '/knowledge-base/manifest.webmanifest' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'default' }],
-    ['link', { rel: 'apple-touch-icon', href: '/image/logo.png' }]
+    ['link', { rel: 'apple-touch-icon', href: '/knowledge-base/image/logo.png' }]
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
