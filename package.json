@@ -3,6 +3,7 @@
   "private": true,
   "devDependencies": {
     "@types/node": "^24.0.14",
+    "ts-node": "^10.9.2",
     "vitepress": "^1.6.3"
   },
   "workspaces": [
