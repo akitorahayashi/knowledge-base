@@ -2,14 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
-  issue_comment:
-    types: [created]
 
 jobs:
   deploy:
-    if: |
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'issue_comment' && github.event.issue.pull_request && startsWith(github.event.comment.body, '/deploy'))
     runs-on: ubuntu-latest
     permissions:
       contents: read
