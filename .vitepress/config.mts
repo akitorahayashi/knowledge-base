@@ -5,6 +5,7 @@ const BASE_URL = process.env.GITHUB_ACTIONS === 'true' ? '/knowledge-base/' : '/
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  srcDir: 'sources',
   base: BASE_URL,
   title: "Knowledge Base",
   description: "モバイルアプリ開発のナレッジのまとめサイト",

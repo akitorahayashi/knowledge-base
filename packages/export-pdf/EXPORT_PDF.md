@@ -16,7 +16,7 @@
 VitePress開発サーバーが起動している状態で、プロジェクトのルートディレクトリから以下のコマンドを実行します。
 
 ```bash
-npm run docs:export-pdf -- <Markdownファイルのパス> <開発サーバーのURL>
+export-pdf -- <Markdownファイルのパス> <開発サーバーのURL>
 ```
 
 ### 引数の説明

@@ -2,6 +2,7 @@
 title: ダミータイトル
 lastUpdated: true
 outline: [2]
+date: "2025-07-15"
 ---
 
 ### 概要
