@@ -23,7 +23,7 @@ npm run docs:export-pdf -- <Markdownファイルのパス> <開発サーバー�
 
 *   **`<Markdownファイルのパス>`:**
     PDF化したいMarkdownファイルの、プロジェクトルートからの相対パスを指定します。
-    例: `docs/app/ios/your-page.md`
+    例: `sources/app/ios/your-page.md`
 
 *   **`<開発サーバーのURL>`:**
     起動しているVitePress開発サーバーの完全なベースURLを指定します。
@@ -32,19 +32,19 @@ npm run docs:export-pdf -- <Markdownファイルのパス> <開発サーバー�
 
 ### コマンド実行例
 
-Markdownファイル `docs/app/ios/some-feature.md` を、開発サーバー `http://localhost:5173/docs/` を使ってPDF化する場合:
+Markdownファイル `sources/app/ios/some-feature.md` を、開発サーバー `http://localhost:5173/sources/` を使ってPDF化する場合:
 
 ```bash
-npm run docs:export-pdf -- docs/app/ios/some-feature.md http://localhost:5173/docs/
+npm run docs:export-pdf -- sources/app/ios/some-feature.md http://localhost:5173/sources/
 ```
 
 ## 出力先
 
-生成されたPDFファイルは、以下の構造で `export-pdf/pdf/` ディレクトリ以下に保存されます。
+生成されたPDFファイルは、以下の構造で `packages/export-pdf/pdf/` ディレクトリ以下に保存されます。
 
-`export-pdf/pdf/<プラットフォーム>/<カテゴリ>/<ファイル名>.pdf`
+`packages/export-pdf/pdf/<プラットフォーム>/<カテゴリ>/<ファイル名>.pdf`
 
-例えば、`docs/app/ios/introduction.md` をPDF化した場合、出力先は `export-pdf/pdf/app/ios/introduction.pdf` となります。
+例えば、`sources/app/ios/introduction.md` をPDF化した場合、出力先は `packages/export-pdf/pdf/app/ios/introduction.pdf` となります。
 Markdownファイルのパスに含まれる `content` という名前のディレクトリは、出力パス構造からは除外されます。
 
 ## 注意事項

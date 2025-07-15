@@ -1,13 +1,14 @@
 {
   "devDependencies": {
-    "puppeteer": "^24.8.2",
-    "vitepress": "^1.6.3",
-    "vitepress-export-pdf": "^1.0.0"
+    "vitepress": "^1.2.3"
   },
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview",
-    "docs:export-pdf": "node export-pdf/export-pdf.js"
-  }
+    "docs:export-pdf": "node packages/export-pdf/export-pdf.js"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

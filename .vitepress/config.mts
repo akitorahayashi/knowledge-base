@@ -22,40 +22,50 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'ホーム', link: '/' },
-      { text: 'Apple Ecosystem', link: '/docs/apple-ecosystem/' },
-      { text: 'Flutter', link: '/docs/flutter/' },
-      { text: 'Gemini Gem', link: '/docs/gemini-gem-prompt/' }
+      { text: 'Apple Ecosystem', link: '/sources/apple-ecosystem/' },
+      { text: 'Flutter', link: '/sources/flutter/' },
+      { text: 'Python', link: '/sources/python/' },
+      { text: 'Gemini Gem', link: '/sources/gemini-gem-prompt/' }
     ],
 
     sidebar: {
-      '/docs/apple-ecosystem/': [
+      '/sources/apple-ecosystem/': [
         {
           text: 'Apple Ecosystem開発',
           items: [
-            { text: 'Apple Ecosystem トップ', link: '/docs/apple-ecosystem/index' },
-            { text: '記事1', link: '/docs/apple-ecosystem/contents/1-apple-ecosystem-article' },
-            { text: '記事2', link: '/docs/apple-ecosystem/contents/2-apple-ecosystem-article' },
+            { text: 'Apple Ecosystem トップ', link: '/sources/apple-ecosystem/index' },
+            { text: '記事1', link: '/sources/apple-ecosystem/contents/1-apple-ecosystem-article' },
+            { text: '記事2', link: '/sources/apple-ecosystem/contents/2-apple-ecosystem-article' },
           ]
         },
       ],
-      '/docs/flutter/': [
+      '/sources/flutter/': [
         {
           text: 'Flutter開発',
           items: [
-            { text: 'Flutter トップ', link: '/docs/flutter/index' },
-            { text: '記事1', link: '/docs/flutter/contents/1-flutter-article' },
-            { text: '記事2', link: '/docs/flutter/contents/2-flutter-article' },
+            { text: 'Flutter トップ', link: '/sources/flutter/index' },
+            { text: '記事1', link: '/sources/flutter/contents/1-flutter-article' },
+            { text: '記事2', link: '/sources/flutter/contents/2-flutter-article' },
           ]
         },
       ],
-      '/docs/gemini-gem-prompt/': [
+      '/sources/python/': [
+        {
+          text: 'Python開発',
+          items: [
+            { text: 'Python トップ', link: '/sources/python/index' },
+            { text: '記事1', link: '/sources/python/contents/1-python-article' },
+          ]
+        },
+      ],
+      '/sources/gemini-gem-prompt/': [
         {
           text: 'Gemini Gem Prompts',
           items: [
-            { text: 'トップ', link: '/docs/gemini-gem-prompt/index' },
-            { text: 'Apple Ecosystem Topic Generator', link: '/docs/gemini-gem-prompt/contents/1-apple-ecosystem-topic-gen' },
-            { text: 'Flutter Topic Generator', link: '/docs/gemini-gem-prompt/contents/2-flutter-topic-gen' },
-            { text: 'Go Language Topic Generator', link: '/docs/gemini-gem-prompt/contents/3-go-topic-gen' },
+            { text: 'トップ', link: '/sources/gemini-gem-prompt/index' },
+            { text: 'Apple Ecosystem Topic Generator', link: '/sources/gemini-gem-prompt/contents/1-apple-ecosystem-topic-gen' },
+            { text: 'Flutter Topic Generator', link: '/sources/gemini-gem-prompt/contents/2-flutter-topic-gen' },
+            { text: 'Go Language Topic Generator', link: '/sources/gemini-gem-prompt/contents/3-go-topic-gen' },
           ]
         },
       ],
