@@ -23,11 +23,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'ホーム', link: '/' },
-      { text: 'Apple Ecosystem', link: '/sources/apple-ecosystem/' },
-      { text: 'Flutter', link: '/sources/flutter/' },
-      { text: 'Python', link: '/sources/python/' },
-      { text: 'Gemini Gem', link: '/sources/gemini-gem-prompt/' }
+      { text: 'ホーム', link: '/' }
     ],
 
     sidebar: {
