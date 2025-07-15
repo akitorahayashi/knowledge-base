@@ -18,10 +18,6 @@ features:
     title: Python
     details: Pythonを使った業務効率化・アプリ開発
     link: /python/
-  - icon: 🦋
-    title: Flutter
-    details: Dartを使ったクロスプラットフォーム開発
-    link: /flutter/
   - icon: 🤖
     title: Gemini Gems
     details: Gemini の Gem を作る際のプロンプトまとめ

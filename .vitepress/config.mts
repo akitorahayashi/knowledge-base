@@ -36,15 +36,6 @@ export default defineConfig({
           ]
         },
       ],
-      '/flutter/': [
-        {
-          items: [
-            { text: 'Flutter トップ', link: '/flutter/' },
-            { text: '記事1', link: '/flutter/contents/1-flutter-article' },
-            { text: '記事2', link: '/flutter/contents/2-flutter-article' },
-          ]
-        },
-      ],
       '/python/': [
         {
           items: [
