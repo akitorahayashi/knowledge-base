@@ -41,7 +41,7 @@ export default defineConfig({
         {
           items: [
             { text: 'Python トップ', link: '/python/' },
-            { text: '記事1', link: '/python/contents/1-python-article' },
+            { text: '記事1', link: '/python/contents/1-python-excel-automation' },
           ]
         },
       ],
@@ -52,6 +52,14 @@ export default defineConfig({
             { text: 'Apple Ecosystem Topic Generator', link: '/gemini-gem-prompt/contents/1-apple-ecosystem-topic-gen' },
             { text: 'Flutter Topic Generator', link: '/gemini-gem-prompt/contents/2-flutter-topic-gen' },
             { text: 'Go Language Topic Generator', link: '/gemini-gem-prompt/contents/3-go-topic-gen' },
+          ]
+        },
+      ],
+      '/android/': [
+        {
+          items: [
+            { text: 'Android トップ', link: '/android/' },
+            { text: '開発フロー', link: '/android/contents/1-android-development-flow' },
           ]
         },
       ],

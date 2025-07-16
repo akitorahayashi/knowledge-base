@@ -70,7 +70,15 @@ features:
 
 #### ステップ1: 記事ファイルの作成
 `sources/react/contents/3-testing.md` というファイルを新規作成し、以下の形式で記述：
+
 ```markdown
+---
+title: "ここに記事のタイトルを入力"
+description: "ここに記事の概要を入力します。"
+date: "2025-07-16"
+lastUpdated: "2025-07-16"
+---
+
 # React Testing
 
 この記事ではReactコンポーネントのテスト方法について説明します。
