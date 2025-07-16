@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "🤖 Gemini Gem Prompt"
+  name: "💎 Gemini Gem Prompt"
   tagline: "Gemini の Gem を作る際のプロンプトまとめ"
 
 features:
