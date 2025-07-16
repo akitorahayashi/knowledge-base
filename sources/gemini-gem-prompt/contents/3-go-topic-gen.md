@@ -1,5 +1,8 @@
 ---
-date: "2025-07-15"
+title: Go 言語トピックジェネレーター
+description: Go言語開発に関するトピックを生成・解説するAIプロンプト
+date: 2025-07-15
+lastUpdated: true
 ---
 # Go 言語のトピックジェネレーター
 

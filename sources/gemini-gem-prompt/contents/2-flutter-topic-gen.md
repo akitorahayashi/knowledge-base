@@ -1,5 +1,8 @@
 ---
-date: "2025-07-15"
+title: Flutter トピックジェネレーター
+description: Flutter開発に関するトピックを生成・解説するAIプロンプト
+date: 2025-07-15
+lastUpdated: true
 ---
 # Flutter のトピックジェネレーター
 

@@ -82,4 +82,4 @@ lastUpdated: true
 
 ---
 <br>
-<div style="text-align: right;">2025/7/16 Gemini 2.5 Proを使って作成</div>
+<div style="text-align: right;">2025/7/16 Gemini 2.5 Proを使用して作成</div>

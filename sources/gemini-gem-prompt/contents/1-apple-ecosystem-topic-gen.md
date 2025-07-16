@@ -1,5 +1,8 @@
 ---
-date: "2025-07-15"
+title: Apple Ecosystem トピックジェネレーター
+description: Apple Ecosystem開発に関するトピックを生成・解説するAIプロンプト
+date: 2025-07-15
+lastUpdated: true
 ---
 # Apple Ecosystem のトピックジェネレーター
 

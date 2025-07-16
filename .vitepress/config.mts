@@ -41,7 +41,7 @@ export default defineConfig({
         {
           items: [
             { text: 'Python トップ', link: '/python/' },
-            { text: '記事1', link: '/python/contents/1-python-article' },
+            { text: '記事1', link: '/python/contents/1-python-excel-automation' },
           ]
         },
       ],

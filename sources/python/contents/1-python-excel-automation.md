@@ -1,8 +1,8 @@
 ---
 title: "PythonによるExcel業務自動化の可能性"
 description: "Pythonを活用してExcel業務を自動化するための具体的なユースケースを、部門別に網羅的に解説した実践的なレポートです。"
-date: "2025-07-15"
-author: "AI Assistant"
+date: 2025-07-15
+lastUpdated: true
 ---
 # PythonによるExcel業務自動化の可能性：現場で活用できるユースケースの網羅的分析レポート
 
@@ -204,3 +204,7 @@ Pythonがもたらす究極的な価値は、ビジネス担当者がタスク�
 
 ---
 この記事はGemini DeepSearchによって生成されました。
+
+---
+<br>
+<div style="text-align: right;">2025/07/16 Gemini DeepSearchを使用して作成</div>
