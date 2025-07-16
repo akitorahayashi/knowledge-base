@@ -73,10 +73,10 @@ features:
 
 ```markdown
 ---
-title: ここに記事のタイトルを入力
-description: ここに記事の概要を入力します。
-date: 2025-07-16
-lastUpdated: true
+title: "ここに記事のタイトルを入力"
+description: "ここに記事の概要を入力します。"
+date: "2025-07-16"
+lastUpdated: "2025-07-16"
 ---
 
 # React Testing

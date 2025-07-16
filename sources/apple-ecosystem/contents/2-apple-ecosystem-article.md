@@ -1,8 +1,8 @@
 ---
-title: ダミータイトル
-description: 記事の概要
+title: "ダミータイトル"
+description: "記事の概要"
 date: 2025-07-15
-lastUpdated: true
+lastUpdated: 2025-07-15
 ---
 
 ### 概要

@@ -2,7 +2,7 @@
 title: "PythonによるExcel業務自動化の可能性"
 description: "Pythonを活用してExcel業務を自動化するための具体的なユースケースを、部門別に網羅的に解説した実践的なレポートです。"
 date: 2025-07-15
-lastUpdated: true
+lastUpdated: 2025-07-15
 ---
 # PythonによるExcel業務自動化の可能性：現場で活用できるユースケースの網羅的分析レポート
 

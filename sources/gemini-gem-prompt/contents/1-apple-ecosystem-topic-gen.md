@@ -1,8 +1,8 @@
 ---
-title: Apple Ecosystem トピックジェネレーター
-description: Apple Ecosystem開発に関するトピックを生成・解説するAIプロンプト
+title: "Apple Ecosystem トピックジェネレーター"
+description: "Apple Ecosystem開発に関するトピックを生成・解説するAIプロンプト"
 date: 2025-07-15
-lastUpdated: true
+lastUpdated: 2025-07-15
 ---
 # Apple Ecosystem のトピックジェネレーター
 
