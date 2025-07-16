@@ -55,6 +55,14 @@ export default defineConfig({
           ]
         },
       ],
+      '/android/': [
+        {
+          items: [
+            { text: 'Android トップ', link: '/android/' },
+            { text: '開発フロー', link: '/android/contents/1-android-development-flow' },
+          ]
+        },
+      ],
     },
 
     socialLinks: [

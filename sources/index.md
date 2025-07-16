@@ -22,5 +22,9 @@ features:
     title: Gemini Gems
     details: Gemini の Gem を作る際のプロンプトまとめ
     link: /gemini-gem-prompt/
+  - icon: 🤖
+    title: Android
+    details: Androidアプリ開発のナレッジ
+    link: /android/
 
 
