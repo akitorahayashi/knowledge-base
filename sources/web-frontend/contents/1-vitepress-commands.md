@@ -26,12 +26,12 @@ dev
     * ポート番号を指定（例：--port 4000）
 * --open
     * サーバー起動時にブラウザを自動で開く
-* --base <path>
+* --base `<path>`
     * サイトのベースパスを指定（デフォルトは /）
 build
-* --outDir <dir>
+* --outDir `<dir>`
     * 出力先ディレクトリ（デフォルトは .vitepress/dist）
-* --base <path>
+* --base `<path>`
     * サイトのベースパスを指定
 * --clean
     * ビルド前に出力ディレクトリを削除
