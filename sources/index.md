@@ -26,5 +26,9 @@ features:
     title: Android
     details: Androidアプリ開発のナレッジ
     link: /android/
+  - icon: 🌐
+    title: Web Frontend
+    details: HTML, CSS, JavaScript, and modern frameworks
+    link: /web-frontend/
 
 
