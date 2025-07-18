@@ -63,6 +63,14 @@ export default defineConfig({
           ]
         },
       ],
+      '/web-frontend/': [
+        {
+          items: [
+            { text: 'Web Frontend トップ', link: '/web-frontend/' },
+            { text: 'VitePress Commands', link: '/web-frontend/contents/1-vitepress-commands' },
+          ]
+        },
+      ],
     },
 
     socialLinks: [
